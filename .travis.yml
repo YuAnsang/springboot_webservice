@@ -21,9 +21,13 @@ notifications:
 
 
 before_deploy:
-  - zip -r asyu-boot-webservice *
-  - mkdir -p deploy
-  - mv asyu-boot-webservice.zip deploy/asyu-boot-webservice.zip
+  - mkdir -p before-deploy
+  - cp scripts/*.sh before-deploy/
+  - cp appspec.yml before-deploy/
+  - cp build/libs/*.jar before-deploy/
+  - cd before-deploy && zip -r before-deploy * # before-deploy로 이동 후 전체 압축
+  - cd ../ & mkdir -p deploy
+  - mv before-deploy/before-deploy.zip deploy/asyu-boot-webservice.zip
 
 deploy:
   - provider: s3
