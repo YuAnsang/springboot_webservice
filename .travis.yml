@@ -48,5 +48,6 @@ deploy:
     bundle_type: zip
     application: asyu-boot-webservice
     deploy_group: asyu-boot-webservice-group
+    deploy_group_name: asyu-boot-webservice-group
     region: ap-northeast-2
     wait-until-deployed: true
