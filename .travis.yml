@@ -20,3 +20,19 @@ notifications:
       - kahlman@naver.com
 
 
+before_deploy:
+  - zip -r asyu-boot-webservice *
+  - mkdir -p deploy
+  - mv asyu-boot-webservice.zip deploy/asyu-boot-webservice.zip
+
+deploy:
+  - provider: s3
+    access_key_id: AKIAWFTGBQ5JPSXPJQTE
+    secret_access_key: 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
+    bucket: asyu-webservice-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private # zip파일 접근을 private
+    local_dir: deploy
+    wait-until-deployed: true
+
