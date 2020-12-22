@@ -36,13 +36,13 @@ deploy:
     local_dir: deploy
     wait-until-deployed: true
 
-  - - provider: codedeploy
-      access_key_id: AKIAWFTGBQ5JPSXPJQTE
-      secret_access_key: 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
-      bucket: asyu-webservice-build
-      key: asyu-boot-webservice.zip
-      bundle_type: zip
-      application: asyu-boot-webservice
-      deploy_group: asyu-boot-webservice-group
-      region: ap-northeast-2
-      wait-until-deployed: true
+  - provider: codedeploy
+    access_key_id: AKIAWFTGBQ5JPSXPJQTE
+    secret_access_key: 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
+    bucket: asyu-webservice-build
+    key: asyu-boot-webservice.zip
+    bundle_type: zip
+    application: asyu-boot-webservice
+    deploy_group: asyu-boot-webservice-group
+    region: ap-northeast-2
+    wait-until-deployed: true
